@@ -15,6 +15,6 @@ export class LoginService {
 }
 export interface Login {
   username: string;
-  textfile: string;
+  password: string;
 } 
 
