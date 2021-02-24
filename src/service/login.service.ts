@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -13,8 +13,9 @@ export class LoginService {
     return this.http.get<Login>(this.loginUrl);
   }
 }
+
+
 export interface Login {
   username: string;
   password: string;
 } 
-
