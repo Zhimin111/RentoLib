@@ -1,21 +1,22 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import {Login} from '../app/model/login.model';
+
+
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+  url :string =" https://torre-test-301909.appspot.com/user/Login";
 
-  constructor(private http: HttpClient) {}
-  loginUrl = 'assets/login.json';
+  constructor(private httpClient: HttpClient) { }
 
-  getLogin(){
-    return this.http.get<Login>(this.loginUrl);
+  save(login: Login){
+    return this.httpClient.post(this.url,login); 
+  
   }
+ 
+
 }
-
-
-export interface Login {
-  username: string;
-  password: string;
-} 
