@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Signup} from '../app/model/signup.model';
+import {Signup} from '../model/signup.model';
 import { HttpClient, HttpResponse } from '@angular/common/http';
+import { Observable, pipe } from 'rxjs';
+import { map, catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,9 @@ export class SignupService {
   constructor(private httpClient: HttpClient) { }
 
   save(signup: Signup){
-    return this.httpClient.post(this.url,signup); 
+    return this.httpClient.post(this.url,signup)
+  
   
   }
+  
 }
